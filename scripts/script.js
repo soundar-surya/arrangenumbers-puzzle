@@ -16,14 +16,8 @@ $(document).ready(function(){
         [list[6], list[7], list[8]]
     ]
     
-
-
     //adding a class to the element that click was performed on
     $('.grid-item').click(function(){
-
-        //incrementing count to get the total moves we have made
-        count++;
-        $('#moves').text(count);
 
         //adding a class
         $(this).addClass('highlighter')
@@ -32,35 +26,33 @@ $(document).ready(function(){
                 let currentIndex = index(Number(currentValue), matrix);
                 let source = index(0, matrix);
                 let isValid = validSwap(source[0], source[1],  currentIndex[0], currentIndex[1]);
+
                 if(isValid){
-                    // console.log(true);
-                    console.log(matrix);
+                    //incrementing count to get the total moves we have made
+                    count++;
+                    $('#moves').text(count);
+
+                    //swapping the values in the matrix
                     let temp = matrix[currentIndex[0]][currentIndex[1]];
                     matrix[source[0]][source[1]] = temp;
                     matrix[currentIndex[0]][currentIndex[1]] = 0;
-                    // console.log(matrix);
-
-                    let flatArray = iFlat(matrix);
-                    // console.log(flatArray)
-                    //let targetIndexOfFlatArray = flatArray.findIndex(num => num === 0);
-                    list = flatArray
-                    let sourceElement = list.findIndex(num => num === 0);
                     
-                    //let t = $(this).text();
+                    //flattening the matrix and assigning it to the list array to find the (index of the)element to be changed
+                    let flatArray = iFlat(matrix);
+                    list = flatArray
+                    
+                    //swapping values
                     $(this).text('');
-                    //$(arr[sourceElement]).text(t);
                      console.log(currentValue)
                      $('.grid-item').each(function(){
                         if(Number($(this).text()) === 0){
                             $(this).text(currentValue);
-                            
                         }
                     })
                     $(this).text('');
                 }
         }
         
-
         //removing the class from other elements
         for(i of arr){
             if(i !== this && $(i).hasClass('highlighter')){
@@ -68,11 +60,7 @@ $(document).ready(function(){
             }
         }
     })
-
-    //arranging the numbers in sequential order
-
 })
-
 
 //finding Index
 let index = (curr, mat) => {
