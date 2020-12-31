@@ -1,0 +1,45 @@
+/*
+title : number sequence game
+author: soundarsurya
+*/
+.grid-container {
+    width: 30%;
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background-color: #6e3d1c;
+    padding: 10px;
+    grid-column-gap: 15px;
+    grid-row-gap: 15px;
+    margin: 7rem 0rem 0rem 32vw;
+    height: 500px;
+  }
+  .grid-item {
+    background-color: rgba(63, 228, 247, 0.8);
+    border: 1px solid rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+  }
+
+.grid-item:hover{
+    background: rgb(112, 219, 112);
+}
+
+.highlighter{
+ 
+    box-shadow: 0 0 4px 4px rgb(24, 88, 226); /* All the borders by using the spread properties */
+
+}
+
+#moves{
+    color: crimson;
+    font-size: 2rem;
+}
+
+#title{
+    margin: 3rem 0rem 0rem 36rem;
+}
+
+#message{
+    margin: 2rem 0rem 0rem 45rem;
+}
